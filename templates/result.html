@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RidePulse - Prediction Result</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f8;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 650px;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .result-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        .location {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .time {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .prediction-label {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .prediction {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .level {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .low {
+            background: #dff6e4;
+            color: #187a35;
+        }
+
+        .medium {
+            background: #fff2cc;
+            color: #946200;
+        }
+
+        .high {
+            background: #ffdede;
+            color: #b42318;
+        }
+
+        .back-button {
+            display: inline-block;
+            text-decoration: none;
+            background: #222;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        .back-button:hover {
+            opacity: 0.85;
+        }
+
+        .note {
+            margin-top: 25px;
+            font-size: 13px;
+            color: #777;
+            line-height: 1.5;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="logo">
+            🚕 RidePulse
+        </div>
+
+        <p class="subtitle">
+            Historical Ride Demand Prediction
+        </p>
+
+
+        <div class="result-card">
+
+            <p class="location">
+                📍 <strong>{{ start }}</strong>
+            </p>
+
+            <p class="time">
+                🕐 {{ time }}
+            </p>
+
+
+            <p class="prediction-label">
+                Predicted Historical Demand
+            </p>
+
+            <div class="prediction">
+                {{ raw_prediction }}
+            </div>
+
+
+            {% if status == "LOW" %}
+
+                <span class="level low">
+                    🟢 LOW DEMAND
+                </span>
+
+            {% elif status == "MEDIUM" %}
+
+                <span class="level medium">
+                    🟡 MEDIUM DEMAND
+                </span>
+
+            {% else %}
+
+                <span class="level high">
+                    🔴 HIGH DEMAND
+                </span>
+
+            {% endif %}
+
+        </div>
+
+
+        <a href="/" class="back-button">
+            ← Try Another Prediction
+        </a>
+       
+
+        <p class="note">
+            This prediction represents estimated historical ride demand
+            based on patterns learned from the dataset.
+        </p>
+         <a href="/dashboard" class="dashboard-button">
+            View Analytics Dashboard
+        </a>
+    </div>
+
+</body>
+
+</html>
+    </div>
+</body>
+
+</html>
+
